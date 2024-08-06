@@ -1,0 +1,49 @@
+.app-container {
+    display: flex;
+}
+
+.left-side {
+    flex: 1;
+    padding: 10px;
+    border-right: 1px solid #ddd; /* 可选：添加一个分隔线 */
+}
+
+.right-side {
+    flex: 1;
+    padding: 10px;
+}
+
+.spacer {
+    height: 20px; /* 可以根据需要调整高度 */
+}
+
+.dropdown {
+    width: 150px; /* 设置下拉框宽度 */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+label {
+    margin-right: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+button {
+    margin-left: 10px;
+}
