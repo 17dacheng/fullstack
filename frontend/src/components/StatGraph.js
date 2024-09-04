@@ -9,7 +9,7 @@ function StatGraph() {
     const handleStats = async () => {
         try {
             const response = await axios({
-                url: 'http://192.168.4.6:34014/statistics', // Adjusted to your backend URL
+                url: 'http://192.168.4.6:36628/statistics', // Adjusted to your backend URL
                 method: 'POST',
                 responseType: 'blob', // Important for handling binary data
                 data: { statType }

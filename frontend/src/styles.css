@@ -1,16 +1,40 @@
 .app-container {
     display: flex;
+    height: 100vh;
 }
 
 .left-side {
     flex: 1;
-    padding: 10px;
-    border-right: 1px solid #ddd; /* 可选：添加一个分隔线 */
+    padding: 20px;
+    overflow: auto;
 }
 
 .right-side {
     flex: 1;
-    padding: 10px;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.data-list-container {
+    height: 100%;
+    overflow: auto;
+}
+
+.divider {
+    width: 2px;
+    background-color: #ccc; /* Change color as needed */
+    margin: 0 10px;
+    position: relative;
+}
+
+.divider::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    background: linear-gradient(to bottom, #ff7e5f, #feb47b); /* Example gradient */
 }
 
 .spacer {
@@ -30,20 +54,27 @@ label {
     margin-right: 10px;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-table, th, td {
-    border: 1px solid black;
-}
-
-th, td {
-    padding: 8px;
-    text-align: left;
-}
-
 button {
     margin-left: 10px;
+}
+
+/* Add styles for the download button */
+.data-count-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.download-button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.download-button:hover {
+    background-color: #45a049;
 }

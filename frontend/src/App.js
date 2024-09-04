@@ -8,6 +8,17 @@ function App() {
     const [dataList, setDataList] = useState([]);
     const [dataCount, setDataCount] = useState(0);
 
+    const handleDownload = () => {
+        const dataStr = JSON.stringify(dataList, null, 2);
+        const blob = new Blob([dataStr], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'data.json';
+        a.click();
+        URL.revokeObjectURL(url);
+    };
+
     return (
         <div className="app-container">
             <div className="left-side">
@@ -16,38 +27,18 @@ function App() {
                 <div className="spacer"></div> {/* 添加空行 */}
                 <StatGraph />
             </div>
+            <div className="divider"></div> {/* 添加分隔线 */}
             <div className="right-side">
-                <DataList dataList={dataList} dataCount={dataCount} />
+                <div className="data-list-container">
+                    <div className="data-count-container">
+                        <p>Data Count: {dataCount}</p> {/* Display the data count */}
+                        <button onClick={handleDownload} className="download-button">Download</button>
+                    </div>
+                    <DataList dataList={dataList} dataCount={dataCount} />
+                </div>
             </div>
         </div>
     );
 }
 
 export default App;
-
-
-// import React, { useState } from 'react';
-// import SearchForm from './components/SearchForm';
-// import DataList from './components/DataList';
-// import StatGraph from './components/StatGraph';
-// import UploadDataProc from './components/UploadDataProc';
-// import './styles.css';
-
-// function App() {
-//     const [dataList, setDataList] = useState([]);
-//     const [dataCount, setDataCount] = useState(0);
-
-//     return (
-//         <div>
-//             <SearchForm setDataList={setDataList} setDataCount={setDataCount} />
-//             <UploadDataProc />
-//             <DataList dataList={dataList} dataCount={dataCount} />
-//             <StatGraph />
-//         </div>
-//     );
-// }
-
-// export default App;
-
-// import logo from './logo.svg';
-// import './App.css';

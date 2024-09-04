@@ -12,18 +12,23 @@ function SearchForm({ setDataList, setDataCount }) {
         console.log('Sending JSON to backend:', data);
 
         try {
-            const result = await axios.post('http://192.168.4.6:34014/search', data);
+            const result = await axios.post('http://192.168.4.6:36628/search', data);
             console.log('Received response:', result.data); // 打印服务器响应
-            // setDataList(result.data.dataList);
-            // setDataCount(result.data.dataCount);
-            // setDataList(result.data || []); // Directly use the array
-            // setDataCount(result.data.length || 0); // Use the length of the array    
+    
             const transformedData = result.data.map(item => ({
                 ec_number: item[0],
-                uniprot_id: item[1],
-                entry_id: item[2],
-                substrate: item[3],
-                kcat: item[4]
+                organism: item[1],
+                enzyme_type: item[2],
+                reactants: item[3],
+                substrate: item[4],
+                kcat: item[5],
+                unit: item[6],
+                PH: item[7],
+                Temp: item[8],
+                uniprot_id: item[9],
+                sequence: item[10],
+                smiles: item[11],
+                PubMedID: item[12]
             }));
             setDataList(transformedData || []);
             setDataCount(transformedData.length || 0);            

@@ -7,7 +7,7 @@ function UploadDataProc() {
     const handleFileUpload = async () => {
         const formData = new FormData();
         formData.append('file', file);
-        await axios.post('http://192.168.4.6:34014/upload', formData);
+        await axios.post('http://192.168.4.6:36628/upload', formData);
         // await axios.post('http://localhost:5000/upload', formData);
     };
 
