@@ -3,7 +3,7 @@ import axios from 'axios';
 // import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
 function StatGraph() {
-    const [statType, setStatType] = useState('EC'); // Default selection
+    const [statType, setStatType] = useState('Placeholder'); // Default selection
     const [imageSrc, setImageSrc] = useState(null); // State to hold the image source
 
     const handleStats = async () => {
@@ -25,12 +25,23 @@ function StatGraph() {
     return (
         <div>
             <label>统计维度</label>
-            <select className="dropdown" value={statType} onChange={(e) => setStatType(e.target.value)} style={{ marginLeft: '10px' }}>
+            <select
+                className="dropdown"
+                value={statType}
+                onChange={(e) => setStatType(e.target.value)}
+                style={{ 
+                    width: '200px', 
+                    height: '35px', 
+                    color: statType === 'Placeholder' ? 'lightgray' : 'black', 
+                    marginLeft: '10px' 
+                }}
+            >
+                <option value="Placeholder">placeholder</option>
                 <option value="EC">EC分布</option>
                 <option value="Kcat">Kcat分布</option>
                 <option value="Substrate">Substrate分布</option>
             </select>
-            <button onClick={handleStats} style={{ marginLeft: '10px' }}>执行</button>
+            <button onClick={handleStats} className="execute-button">执行</button>
             <div style={{ marginTop: '20px' }}>统计图如下</div>
             {imageSrc && <img src={imageSrc} alt="Statistics" style={{ marginTop: '10px' }} />}
         </div>

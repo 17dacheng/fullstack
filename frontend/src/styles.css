@@ -27,15 +27,6 @@
     position: relative;
 }
 
-.divider::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    width: 2px;
-    background: linear-gradient(to bottom, #ff7e5f, #feb47b); /* Example gradient */
-}
 
 .spacer {
     height: 20px; /* 可以根据需要调整高度 */
@@ -77,4 +68,65 @@ button {
 
 .download-button:hover {
     background-color: #45a049;
+}
+
+.fixed-header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: white;
+    z-index: 1;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-right: 20px; /* Adjust this value as needed */
+}
+
+/* styles.css */
+.search-form-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.button-group {
+    display: flex;
+    margin-left: 10px;
+}
+
+.add-button {
+    margin-top: 10px;
+    background: none;
+    border: none;
+    color: blue;
+    cursor: pointer;
+}
+
+.search-button, .reset-button, .execute-button {
+    background-color: blue;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.search-button:hover, .reset-button:hover, .execute-button:hover {
+    opacity: 0.8;
+}
+
+.stat-select {
+    margin-right: 10px;
+    border: 1px solid lightgray;
+}
+
+select, input {
+    border: 1px solid lightgray;
+}
+
+input::placeholder {
+    color: lightgray; /* Change this to your desired color */
+    opacity: 1;       /* Ensure full opacity for consistency across browsers */
 }

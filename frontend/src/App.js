@@ -1,6 +1,7 @@
+// App.js
 import React, { useState } from 'react';
 import SearchForm from './components/SearchForm';
-import DataList from './components/DataList';
+import DataTable from './components/DataList';
 import StatGraph from './components/StatGraph';
 import './styles.css';
 
@@ -19,22 +20,23 @@ function App() {
         URL.revokeObjectURL(url);
     };
 
+    console.log('DataList in App:', dataList); // Add this line to log dataList
+
     return (
         <div className="app-container">
             <div className="left-side">
-                <h1>Moleculemind酶活性数据库</h1> {/* 添加标题 */}
+                <h1>MoleculeMind酶活性数据库</h1>
                 <SearchForm setDataList={setDataList} setDataCount={setDataCount} />
-                <div className="spacer"></div> {/* 添加空行 */}
                 <StatGraph />
             </div>
-            <div className="divider"></div> {/* 添加分隔线 */}
+            <div className="divider"></div>
             <div className="right-side">
                 <div className="data-list-container">
-                    <div className="data-count-container">
-                        <p>Data Count: {dataCount}</p> {/* Display the data count */}
+                    <div className="data-count-container fixed-header">
+                        <p>Data Count: {dataCount}</p>
                         <button onClick={handleDownload} className="download-button">Download</button>
                     </div>
-                    <DataList dataList={dataList} dataCount={dataCount} />
+                    <DataTable dataList={dataList} />
                 </div>
             </div>
         </div>
